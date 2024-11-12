@@ -1,0 +1,15 @@
+---
+interface Props {
+  url: string;
+  nombre: string;
+}
+
+const { url, nombre } = Astro.props;
+const id = url.split('/').at(-2);
+const imagen = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+---
+
+<a href={`/pokemones/${nombre}`} class="rounded-xl border-2 border-white/70 m-3 p-3 flex flex-col items-center">
+  <h2 class="text-yellow-500 text-xl capitalize font-semibold">{nombre}</h2>
+  <img class="w-full" src={imagen} alt={nombre} />
+</a>
